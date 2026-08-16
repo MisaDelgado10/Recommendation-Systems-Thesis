@@ -1,0 +1,13 @@
+metric,value
+total_interactions,1208051
+unique_investors,165975
+unique_startups,311589
+unique_funding_rounds,560270
+unique_investor_startup_pairs,991291
+repeated_investor_startup_pairs,153310
+max_events_for_one_pair,45
+same_day_repeated_groups,2570
+same_day_rows,5146
+same_day_extra_rows,2576
+same_day_multiple_types,2501
+same_day_single_type,69
