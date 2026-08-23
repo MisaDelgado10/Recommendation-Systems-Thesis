@@ -1,0 +1,58 @@
+{
+  "phase": "3.3.1",
+  "graph_name": "itrs_crunchbase_structural_graph",
+  "node_types": [
+    "investor",
+    "startup"
+  ],
+  "node_id_format": {
+    "investor": "investor::<crunchbase_uuid>",
+    "startup": "startup::<crunchbase_uuid>"
+  },
+  "base_relations": {
+    "shared_founder": {
+      "semantics": "symmetric",
+      "storage": "materialize_both_directions_same_relation",
+      "temporal_provenance": "current_snapshot_unversioned"
+    },
+    "acquired": {
+      "semantics": "directed",
+      "storage": "forward_relation",
+      "temporal_policy": "announced_on < 2026-01-01"
+    },
+    "acquired_by": {
+      "semantics": "inverse_of_acquired",
+      "storage": "explicit_inverse_relation"
+    }
+  },
+  "typed_relation_key": "src_type|relation|dst_type",
+  "holdout_mask_policy": "Remove any direct structural relation whose unordered underlying entity pair matches a T60 held-out Investor-Startup pair.",
+  "investment_events_as_structural_edges": false,
+  "explicit_self_loop_relation": false,
+  "node_filtering": "none",
+  "graph_snapshot": "static",
+  "variants": {
+    "core": {
+      "relations": "shared_founder | acquired | acquired_by",
+      "expected_directed_edges": 158818
+    },
+    "founder_only_ablation": {
+      "relations": "shared_founder",
+      "expected_directed_edges": 94818
+    },
+    "acquisition_only_ablation": {
+      "relations": "acquired | acquired_by",
+      "expected_directed_edges": 64000
+    }
+  },
+  "expected_counts": {
+    "investor_nodes": 165975,
+    "startup_nodes": 311589,
+    "total_role_nodes": 477564,
+    "shared_founder_directed_edges": 94818,
+    "acquired_forward_edges": 32000,
+    "acquired_by_inverse_edges": 32000,
+    "core_directed_edges": 158818,
+    "typed_relation_channels": 12
+  }
+}
