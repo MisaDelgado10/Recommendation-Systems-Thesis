@@ -406,12 +406,12 @@ def main():
 
     require(
         PHASE6_6A_CONTRACT_PATH.exists(),
-        "Missing Phase-6.4 contract.",
+        "Missing Phase-6.6a contract.",
     )
 
     require(
         SELECTION_MANIFEST_PATH.exists(),
-        "Missing Phase-6.4 selection manifest.",
+        "Missing Phase-6.6a selection manifest.",
     )
 
     subset_contract = json.loads(
@@ -424,8 +424,8 @@ def main():
         subset_contract[
             "status"
         ]
-        == "FROZEN_FOR_1PCT_PILOT",
-        "Phase-6.4 subset is not frozen.",
+        == "FROZEN_FOR_5PCT_PILOT",
+        "Phase-6.6a subset is not frozen.",
     )
 
     require(
@@ -435,7 +435,7 @@ def main():
             "subset_logical_sha256"
         ]
         == EXPECTED_SUBSET_SHA256,
-        "Phase-6.4 subset SHA drift.",
+        "Phase-6.6a subset SHA drift.",
     )
 
     # =========================================================================
@@ -540,12 +540,12 @@ def main():
         == EXPECTED_SUBSET_SHA256,
         (
             "Filtering canonical positive order "
-            "does not reproduce frozen Phase-6.4 subset."
+            "does not reproduce frozen Phase-6.6a subset."
         ),
     )
 
     print(
-        "Phase-6.4 subset reconstruction: EXACT"
+        "Phase-6.6a subset reconstruction: EXACT"
     )
     print(
         f"Reduced positives:              "
@@ -1114,10 +1114,10 @@ def main():
     )
 
     contract = {
-        "phase": "6.5a",
-        "status": "FROZEN_FOR_1PCT_PILOT",
+        "phase": "6.6b",
+        "status": "FROZEN_FOR_5PCT_PILOT",
         "experiment": (
-            "1PCT_FILTERED_FULL_PHASE5_TRAINING_STREAM"
+            "5PCT_FILTERED_FULL_PHASE5_TRAINING_STREAM"
         ),
 
         "positive_subset": {
@@ -1146,7 +1146,7 @@ def main():
             "negative_policy": (
                 "generate original frozen Phase-5 full "
                 "epoch negative stream, then retain rows "
-                "for selected Phase-6.4 positives"
+                "for selected Phase-6.6a positives"
             ),
 
             "order_policy": (

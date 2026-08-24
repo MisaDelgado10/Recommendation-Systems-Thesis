@@ -899,9 +899,9 @@ def main():
     )
 
     contract = {
-        "phase": "6.4",
+        "phase": "6.6a",
         "schema_version": EXPERIMENT_SCHEMA,
-        "status": "FROZEN_FOR_1PCT_PILOT",
+        "status": "FROZEN_FOR_5PCT_PILOT",
 
         "experiment_type": (
             "REDUCED_SUPERVISED_TRAINING_EVENT_BUDGET"
