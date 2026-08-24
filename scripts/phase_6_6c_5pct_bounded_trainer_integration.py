@@ -1942,7 +1942,7 @@ def main():
     # =========================================================================
 
     contract = {
-        "phase": "6.5b",
+        "phase": "6.6c",
 
         "status": (
             "PASS_BOUNDED_5PCT_TRAINER_INTEGRATION"
