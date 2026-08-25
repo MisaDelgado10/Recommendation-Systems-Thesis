@@ -489,7 +489,7 @@ def build_subset(
 def main():
 
     banner(
-        "PHASE 6.6a — FREEZE 10% REDUCED-SUPERVISION "
+        "PHASE 6.7a — FREEZE 10% REDUCED-SUPERVISION "
         "TRAINING EXPERIMENT"
     )
 
@@ -1057,7 +1057,7 @@ def main():
     # =========================================================================
 
     banner(
-        "PHASE 6.6a — 10% PILOT SUBSET RESULT"
+        "PHASE 6.7a — 10% PILOT SUBSET RESULT"
     )
 
     print(
@@ -1168,7 +1168,7 @@ def main():
 
     print()
     print(
-        "PHASE 6.6a: PASS / "
+        "PHASE 6.7a: PASS / "
         "10% PILOT SUBSET FROZEN"
     )
 
