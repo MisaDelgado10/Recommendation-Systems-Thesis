@@ -1,0 +1,19 @@
+{
+  "analysis_type": "POST_HOC_VALIDATION_LEARNING_DYNAMICS",
+  "best_metric_monotonic_with_budget": {
+    "HR@10": true,
+    "NDCG@10": true
+  },
+  "budgets": [
+    "1pct",
+    "5pct",
+    "10pct"
+  ],
+  "epochs_per_budget": 20,
+  "model_selection_changed": false,
+  "new_model_inference": false,
+  "schema_version": "ITRS_PHASE_7_4_TRAINING_BUDGET_ANALYSIS_V1",
+  "status": "PASS",
+  "t60_test_rescoring": false,
+  "training_performed": false
+}
