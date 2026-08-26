@@ -1,0 +1,2 @@
+events,hits_at_10,HR@10,NDCG@10,mean_positive_rank,median_positive_rank
+20264,7271,0.35881365969206475,0.1948953565042401,26.401401500197395,19.0
