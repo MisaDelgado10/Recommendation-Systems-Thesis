@@ -1,0 +1,10 @@
+{
+  "binding_logical_sha256": "951bf06814aee2e6db6f3a43c099a75715ab1ee8f76f493e989b21bf7ebcc54c",
+  "candidate_matrix_logical_sha256": "7c16db4253a347471f0e33c0dd3c83334191adf0166dc74f95c8e2aab5e0abfe",
+  "checkpoint_sha256": "a86d1e3ecb8058be747d2f289414dbf0bddf779feb2fb7fdbc1cba8cfd3bd4b2",
+  "evaluator_file_sha256": "1f1f4ae65d96927dcaf89862853b3534955b0fea30c855c148ebdee1f48423a1",
+  "phase": "6.8d",
+  "planned_test_cases": 20264,
+  "repository_commit": "605a91455bba3676d715166ec3b418812f347c19",
+  "status": "FINAL_T60_SCORING_STARTED"
+}

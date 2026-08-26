@@ -1,0 +1,45 @@
+{
+  "candidate_budgets": {
+    "10pct": {
+      "best_epoch": 2,
+      "best_validation_HR@10": 0.3509551310528654,
+      "best_validation_NDCG@10": 0.1887323907160795,
+      "epochs_evaluated": 20
+    },
+    "1pct": {
+      "best_epoch": 2,
+      "best_validation_HR@10": 0.1630386494891159,
+      "best_validation_NDCG@10": 0.0802072682286249,
+      "epochs_evaluated": 20
+    },
+    "5pct": {
+      "best_epoch": 20,
+      "best_validation_HR@10": 0.2674366948023101,
+      "best_validation_NDCG@10": 0.1413387528910351,
+      "epochs_evaluated": 20
+    }
+  },
+  "phase": "6.8a",
+  "selected_configuration": {
+    "best_epoch": 2,
+    "checkpoint_path": "data/experimental/phase_6/reduced_training/10pct/run_20epoch/checkpoints/best.pt",
+    "checkpoint_sha256": "a86d1e3ecb8058be747d2f289414dbf0bddf779feb2fb7fdbc1cba8cfd3bd4b2",
+    "frozen_checkpoint_copy": "/workspace/phase6_10pct_best_epoch2.pt",
+    "training_budget": "10pct",
+    "validation_HR@10": 0.350955131053,
+    "validation_NDCG@10": 0.188732390716
+  },
+  "selection_basis": "validation_only; T60 excluded from model selection",
+  "selection_rule": [
+    "maximum validation NDCG@10",
+    "then maximum validation HR@10",
+    "then earliest epoch"
+  ],
+  "status": "FINAL_TRAINING_BUDGET_SELECTION_FROZEN",
+  "test_policy": {
+    "T60_evaluation_allowed_after_this_freeze": true,
+    "T60_evaluation_count_before_freeze": 0,
+    "T60_used_for_budget_selection": false,
+    "T60_used_for_epoch_selection": false
+  }
+}

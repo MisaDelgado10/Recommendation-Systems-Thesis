@@ -1,0 +1,73 @@
+{
+  "files": [
+    {
+      "bytes": 1486,
+      "destination": "phase_7_inputs/final_training_budget_selection.json",
+      "sha256": "9586a2dbd0ccf9e47ea9f0e4a84af8a643ec9697dbb51f1f71af6e482748df49",
+      "source": "data/experimental/phase_6/contracts/phase_6_8a_final_training_budget_selection.json"
+    },
+    {
+      "bytes": 2343,
+      "destination": "phase_7_inputs/final_test_binding_contract.json",
+      "sha256": "322dd825f4c01aee798dbbc6d1a7428ec9a67c87406e167f57905fea7759510f",
+      "source": "data/experimental/phase_6/contracts/phase_6_8c_final_t60_test_binding_contract.json"
+    },
+    {
+      "bytes": 1561,
+      "destination": "phase_7_inputs/final_t60_test_result.json",
+      "sha256": "3edf2ae281c0bca96399b4e98ec73e48f1324be5c8dd8eed46d8b8f9cb1b0303",
+      "source": "data/experimental/phase_6/contracts/phase_6_8d_final_t60_test_result.json"
+    },
+    {
+      "bytes": 1485563,
+      "destination": "phase_7_inputs/final_t60_test_case_metrics.parquet",
+      "sha256": "2c033f33f62ead31146cdebdb5058f78f438f1b096d81eaa6b80c67cb2eae2a8",
+      "source": "data/experimental/phase_6/final_test/final_t60_test_case_metrics.parquet"
+    },
+    {
+      "bytes": 2761132,
+      "destination": "phase_7_inputs/t60_validation_test_split.parquet",
+      "sha256": "8343a37ab552621ec42030784d55e92e6c6dfd7b2195bd8ddef39e028e736f4a",
+      "source": "data/experimental/phase_2/model_ready/t60_validation_test_split.parquet"
+    },
+    {
+      "bytes": 3029,
+      "destination": "phase_7_inputs/1pct_epoch_metrics.csv",
+      "sha256": "44d90dab3a29f418e1fdbdb63f1833f71d0aac8d78d1df11529c795eb9dfd448",
+      "source": "data/experimental/phase_6/reduced_training/1pct/run_20epoch/epoch_metrics.csv"
+    },
+    {
+      "bytes": 3044,
+      "destination": "phase_7_inputs/5pct_epoch_metrics.csv",
+      "sha256": "b28eb0307dc2cf880776d4bb91fe4a5fee7bf73b4facaac6fc0405083f54b635",
+      "source": "data/experimental/phase_6/reduced_training/5pct/run_20epoch/epoch_metrics.csv"
+    },
+    {
+      "bytes": 3045,
+      "destination": "phase_7_inputs/10pct_epoch_metrics.csv",
+      "sha256": "e2c0c669c893b0d6894b2877c8dbf811f3827aa3ac713dfd512cbdb56ae64063",
+      "source": "data/experimental/phase_6/reduced_training/10pct/run_20epoch/epoch_metrics.csv"
+    },
+    {
+      "bytes": 547,
+      "destination": "phase_7_inputs/FINAL_T60_SCORING_STARTED.json",
+      "sha256": "33692ed101399ac2fa717d9d4bcbccb8aab7dcd9c89e282ea01b4124bf4ec01c",
+      "source": "data/experimental/phase_6/final_test/FINAL_T60_SCORING_STARTED.json"
+    }
+  ],
+  "final_selected_configuration": {
+    "best_epoch": 2,
+    "checkpoint_sha256": "a86d1e3ecb8058be747d2f289414dbf0bddf779feb2fb7fdbc1cba8cfd3bd4b2",
+    "training_budget": "10pct"
+  },
+  "final_t60_result": {
+    "HR@10": 0.358813659692,
+    "NDCG@10": 0.194895356504,
+    "test_cases": 20264,
+    "test_rescoring_allowed": false
+  },
+  "phase_6_status": "COMPLETE_AND_FROZEN",
+  "purpose": "Portable, read-only inputs required for Phase 7 results analysis on the local Mac.",
+  "schema_version": "ITRS_PHASE7_HANDOFF_V1",
+  "source_repository_commit": "605a91455bba3676d715166ec3b418812f347c19"
+}

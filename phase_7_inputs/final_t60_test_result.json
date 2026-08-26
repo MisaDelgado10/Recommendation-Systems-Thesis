@@ -1,0 +1,41 @@
+{
+  "case_metrics": {
+    "file_sha256": "2c033f33f62ead31146cdebdb5058f78f438f1b096d81eaa6b80c67cb2eae2a8",
+    "path": "data/experimental/phase_6/final_test/final_t60_test_case_metrics.parquet"
+  },
+  "evaluator_file_sha256": "1f1f4ae65d96927dcaf89862853b3534955b0fea30c855c148ebdee1f48423a1",
+  "execution_invariants": {
+    "backward_performed": false,
+    "cpu_rng_state_unchanged": true,
+    "device": "cpu",
+    "final_test_pass": 1,
+    "gradients_created": false,
+    "model_state_unchanged": true,
+    "optimizer_instantiated": false,
+    "optimizer_steps": 0,
+    "test_cases_scored": 20264
+  },
+  "frozen_test_inputs": {
+    "binding_logical_sha256": "951bf06814aee2e6db6f3a43c099a75715ab1ee8f76f493e989b21bf7ebcc54c",
+    "candidate_matrix_logical_sha256": "7c16db4253a347471f0e33c0dd3c83334191adf0166dc74f95c8e2aab5e0abfe",
+    "candidates_per_case": 100,
+    "test_cases": 20264
+  },
+  "phase": "6.8d",
+  "repository_commit": "605a91455bba3676d715166ec3b418812f347c19",
+  "selected_configuration": {
+    "best_epoch": 2,
+    "checkpoint_sha256": "a86d1e3ecb8058be747d2f289414dbf0bddf779feb2fb7fdbc1cba8cfd3bd4b2",
+    "trained_model_logical_sha256": "49a272b1c64cd69ed5e5fa0f6359485e69163360239407b5861fa9683011ea46",
+    "training_budget": "10pct"
+  },
+  "status": "FINAL_T60_TEST_EVALUATION_COMPLETE",
+  "test_results": {
+    "HR@10": 0.35881365969206475,
+    "NDCG@10": 0.1948953565042401,
+    "evaluation_seconds": 68.62559291906655,
+    "hits_at_10": 7271,
+    "mean_positive_rank": 26.401401500197395,
+    "median_positive_rank": 19.0
+  }
+}

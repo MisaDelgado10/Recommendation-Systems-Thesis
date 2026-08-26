@@ -1,0 +1,56 @@
+{
+  "binding_metadata": {
+    "explicit_case_index_column": "case_index",
+    "interaction_column": "interaction_id",
+    "investor_id_column": "investor_id",
+    "investor_index_column": "investor_node_index",
+    "split_column": "experiment_split",
+    "startup_global_column": "positive_startup_node_index",
+    "startup_id_column": "positive_startup_id",
+    "startup_local_column": null
+  },
+  "evaluation_policy": {
+    "backward_performed": false,
+    "metrics": [
+      "HR@10",
+      "NDCG@10"
+    ],
+    "model_inference_performed": false,
+    "optimizer_instantiated": false,
+    "ranking_order": "descending_score",
+    "ranking_score": "raw_model_logit",
+    "test_metrics_computed": false,
+    "tie_break": "startup_local_ascending"
+  },
+  "final_test_binding": {
+    "binding_file_sha256": "033d184fe2bb6f329df211b745ee6a874803ff1bcf30782487c39efb41ceec18",
+    "binding_logical_sha256": "951bf06814aee2e6db6f3a43c099a75715ab1ee8f76f493e989b21bf7ebcc54c",
+    "binding_path": "data/experimental/phase_6/final_test/final_t60_test_case_binding.parquet",
+    "candidate_matrix_file_sha256": "333df233138caf33273de6656fff9aeb254ad2e5903cf1ef2840a1442fcc7e8d",
+    "candidate_matrix_logical_sha256": "7c16db4253a347471f0e33c0dd3c83334191adf0166dc74f95c8e2aab5e0abfe",
+    "candidate_matrix_path": "data/experimental/phase_6/final_test/final_t60_test_candidate_startup_local.npy",
+    "candidates_per_case": 100,
+    "negatives_per_case": 99,
+    "positive_candidate_position": 0,
+    "test_cases": 20264
+  },
+  "phase": "6.8c",
+  "selected_model": {
+    "best_epoch": 2,
+    "checkpoint_path": "/workspace/phase6_10pct_best_epoch2.pt",
+    "checkpoint_sha256": "a86d1e3ecb8058be747d2f289414dbf0bddf779feb2fb7fdbc1cba8cfd3bd4b2",
+    "training_budget": "10pct"
+  },
+  "source_artifacts": {
+    "case_manifest": {
+      "file_sha256": "44b4b7e1ec1b1978249318a080df02d0d9f617845263513594de64e71b969e0c",
+      "path": "data/experimental/phase_5/model_ready/evaluation/t60_evaluation_case_manifest.parquet"
+    },
+    "negative_matrix": {
+      "coordinate_detected": "startup_global",
+      "file_sha256": "7f98269d0291382dacfc783ffd66ad6d2c2f8775877d57dc0d83504e40d8716d",
+      "path": "data/experimental/phase_5/model_ready/evaluation/t60_evaluation_negative_node_indices.npy"
+    }
+  },
+  "status": "FINAL_T60_TEST_BINDING_FROZEN"
+}
