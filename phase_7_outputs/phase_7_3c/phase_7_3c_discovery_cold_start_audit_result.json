@@ -1,0 +1,31 @@
+{
+  "analysis_type": "POST_HOC_DISCOVERY_SPECIFIC_COLD_START_ANALYSIS",
+  "bootstrap": {
+    "interval": "percentile_95pct",
+    "replicates": 5000,
+    "seed": 42,
+    "unit": "investor_global"
+  },
+  "discovery_cases_available": 16446,
+  "discovery_cases_excluded_from_strict_2x2": 42,
+  "history_definition": {
+    "cold": "entity_seen_before_t60 == False",
+    "t0_only": "excluded_from_strict_2x2",
+    "warm": "entity_seen_in_t1_t59 == True"
+  },
+  "input_hashes": {
+    "phase_7_inputs/final_t60_test_case_metrics.parquet": "2c033f33f62ead31146cdebdb5058f78f438f1b096d81eaa6b80c67cb2eae2a8",
+    "phase_7_inputs/final_t60_test_result.json": "3edf2ae281c0bca96399b4e98ec73e48f1324be5c8dd8eed46d8b8f9cb1b0303",
+    "phase_7_inputs/phase_7_handoff_manifest.json": "e922dd5c9816486aea32642a795be341b75bab858612e5bf95352dfea23cd904",
+    "phase_7_inputs/t60_validation_test_split.parquet": "8343a37ab552621ec42030784d55e92e6c6dfd7b2195bd8ddef39e028e736f4a"
+  },
+  "model_selection_performed": false,
+  "new_model_inference": false,
+  "schema_version": "ITRS_PHASE_7_3C_DISCOVERY_COLD_START_AUDIT_V1",
+  "scope": "new_to_investor_pair_only",
+  "status": "PASS",
+  "strict_discovery_cases_analyzed": 16404,
+  "t60_rescoring": false,
+  "test_cases_available": 20264,
+  "training_performed": false
+}
