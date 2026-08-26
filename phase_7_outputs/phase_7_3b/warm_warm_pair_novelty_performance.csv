@@ -1,0 +1,3 @@
+pair_novelty_group,events,unique_investors,unique_startups,hits_at_10,HR@10,NDCG@10,mean_positive_rank,median_positive_rank
+new_to_investor,6856,4448,3182,3045,0.4441365227537923,0.2453204907964445,21.74722870478413,13.0
+previous_investor_startup_pair,3818,2405,1846,2261,0.5921948664222105,0.35133393232022303,15.527239392352017,7.0

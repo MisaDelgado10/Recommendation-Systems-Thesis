@@ -1,0 +1,40 @@
+{
+  "analysis_type": "POST_HOC_CONDITIONAL_DISCOVERY_DIFFICULTY",
+  "bootstrap": {
+    "interval": "percentile_95pct",
+    "replicates": 5000,
+    "seed": 42,
+    "unit": "investor_global"
+  },
+  "comparison": "new_to_investor_pair versus previous_investor_startup_pair",
+  "condition": "investor_seen_in_t1_t59 == True AND startup_seen_in_t1_t59 == True",
+  "direct_comparison": {
+    "HR_absolute_gap": 0.14805834366841825,
+    "HR_relative_discovery_penalty_pct": 25.00162565793989,
+    "NDCG_absolute_gap": 0.10601344152377853,
+    "NDCG_relative_discovery_penalty_pct": 30.17455240479097,
+    "comparison": "warm_investor + warm_startup: previous_pair minus new_pair",
+    "mean_rank_penalty": 6.219989312432114,
+    "new_pair_HR@10": 0.4441365227537923,
+    "new_pair_NDCG@10": 0.2453204907964445,
+    "new_pair_events": 6856,
+    "new_pair_mean_rank": 21.74722870478413,
+    "previous_pair_HR@10": 0.5921948664222105,
+    "previous_pair_NDCG@10": 0.35133393232022303,
+    "previous_pair_events": 3818,
+    "previous_pair_mean_rank": 15.527239392352017
+  },
+  "input_hashes": {
+    "phase_7_inputs/final_t60_test_case_metrics.parquet": "2c033f33f62ead31146cdebdb5058f78f438f1b096d81eaa6b80c67cb2eae2a8",
+    "phase_7_inputs/final_t60_test_result.json": "3edf2ae281c0bca96399b4e98ec73e48f1324be5c8dd8eed46d8b8f9cb1b0303",
+    "phase_7_inputs/phase_7_handoff_manifest.json": "e922dd5c9816486aea32642a795be341b75bab858612e5bf95352dfea23cd904",
+    "phase_7_inputs/t60_validation_test_split.parquet": "8343a37ab552621ec42030784d55e92e6c6dfd7b2195bd8ddef39e028e736f4a"
+  },
+  "model_selection_performed": false,
+  "new_model_inference": false,
+  "schema_version": "ITRS_PHASE_7_3B_CONDITIONAL_DISCOVERY_AUDIT_V1",
+  "status": "PASS",
+  "t60_rescoring": false,
+  "training_performed": false,
+  "warm_warm_events": 10674
+}

@@ -1,0 +1,2 @@
+comparison,new_pair_events,previous_pair_events,new_pair_HR@10,previous_pair_HR@10,HR_absolute_gap,HR_relative_discovery_penalty_pct,new_pair_NDCG@10,previous_pair_NDCG@10,NDCG_absolute_gap,NDCG_relative_discovery_penalty_pct,new_pair_mean_rank,previous_pair_mean_rank,mean_rank_penalty
+warm_investor + warm_startup: previous_pair minus new_pair,6856,3818,0.4441365227537923,0.5921948664222105,0.14805834366841825,25.00162565793989,0.2453204907964445,0.35133393232022303,0.10601344152377853,30.17455240479097,21.74722870478413,15.527239392352017,6.219989312432114
