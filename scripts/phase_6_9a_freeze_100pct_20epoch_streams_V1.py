@@ -1,6 +1,4 @@
-from pathlib import Path
-
-script = r'''#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Phase 6.9a — Freeze 100% 20-Epoch Production Training Streams V1
 
@@ -2220,9 +2218,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
-
-out = Path("/mnt/data/phase_6_9a_freeze_100pct_20epoch_streams_V1.py")
-out.write_text(script, encoding="utf-8")
-print(out)
-print(f"{len(script.splitlines())} lines")
