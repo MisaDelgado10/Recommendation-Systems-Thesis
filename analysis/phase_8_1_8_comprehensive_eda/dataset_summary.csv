@@ -1,0 +1,10 @@
+dataset,rows,columns,median_completeness_pct,fields_lt10pct,fields_ge99pct,temporal_fields,duplicate_id_occurrences,recommended_role
+companies,4689624,88,10.9918,44,11,6,14227,"Core startup-side attributes and founder relations"
+people,2154681,32,72.9082,7,9,0,2,"Founder identity and derived pre-origin founder history"
+funding,797177,33,82.2290,4,14,1,0,"Core timestamped investment events"
+contacts,724553,30,94.8912,2,14,2,0,"Descriptive / resolution aid; exclude primary predictive use"
+investors,333726,49,24.2771,12,8,2,0,"Core investor master; preserve baseline investor branch"
+acquisitions,204525,35,97.2884,0,14,1,0,"Core timestamped non-target relation"
+hubs,99380,68,88.7533,1,23,0,0,"Aggregate cohorts; exclude primary graph"
+schools,37193,54,54.2481,17,10,2,0,"School master for snapshot-biographical sensitivity"
+events,31261,23,72.6816,1,8,2,0,"Context only; no participant bridge"
