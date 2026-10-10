@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+<rect width="100%" height="100%" fill="white"/>
+<text x="285" y="42" font-family="Arial" font-size="26" font-weight="700">Founder context available to cold-start startups</text>
+<text x="285" y="70" font-family="Arial" font-size="15" fill="#555">Mean case-level coverage across T57–T59</text>
+<g font-family="Arial" font-size="14">
+<text x="270" y="132" text-anchor="end">Any resolved founder Person</text><rect x="285" y="109" width="554" height="30" fill="#4f6d8a"/><text x="845" y="131">46.2%</text>
+<text x="270" y="192" text-anchor="end">Founder description (snapshot)</text><rect x="285" y="169" width="495" height="30" fill="#4f6d8a"/><text x="786" y="191">41.2%</text>
+<text x="270" y="252" text-anchor="end">Leaf-only founder context</text><rect x="285" y="229" width="404" height="30" fill="#4f6d8a"/><text x="695" y="251">33.7%</text>
+<text x="270" y="312" text-anchor="end">Founder school field</text><rect x="285" y="289" width="400" height="30" fill="#4f6d8a"/><text x="691" y="311">33.3%</text>
+<text x="270" y="372" text-anchor="end">Founder connected to ≥2 startups</text><rect x="285" y="349" width="150" height="30" fill="#4f6d8a"/><text x="441" y="371">12.5%</text>
+</g>
+<text x="620" y="444" text-anchor="middle" font-family="Arial" font-size="13" fill="#555">72.9% of founder-covered cases are leaf-only: identity coverage ≠ relational richness</text>
+</svg>
