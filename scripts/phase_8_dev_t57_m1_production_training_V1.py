@@ -75,8 +75,8 @@ EXPECTED_SOURCE_SHA256 = (
 
 parser = argparse.ArgumentParser(
     description=(
-        "Phase 8 DEV_T57 clean CUDA throughput benchmark "
-        "for one frozen candidate family."
+        "Phase 8 M1 DEV_T57 resumable production trainer "
+        "under the frozen V6 development contract."
     )
 )
 
@@ -146,8 +146,7 @@ def sha256_file(path):
 
 print("=" * 120)
 print(
-    "PHASE 8 — DEV_T57 M2 TWO-BATCH "
-    "STATE-PERSISTENCE AUDIT V3"
+    "PHASE 8 — DEV_T57 M1 PRODUCTION TRAINER V1"
 )
 print("=" * 120)
 
@@ -3111,7 +3110,9 @@ require(
     fingerprints[
         "order_regeneration_exact"
     ]
-    .astype(bool)
+    .astype(str)
+    .str.lower()
+    .eq("true")
     .all(),
     "DEV_T57 order-regeneration registry contains a failure.",
 )
