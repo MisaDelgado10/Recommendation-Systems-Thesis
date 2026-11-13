@@ -3643,9 +3643,37 @@ def build_validation_candidate_frame(
                 }
             )
 
-    return pd.DataFrame(
+    frame = pd.DataFrame(
         rows
     )
+
+    frame.insert(
+        0,
+        "batch_position",
+        np.arange(
+            len(
+                frame
+            ),
+            dtype=np.int64,
+        ),
+    )
+
+    require(
+        frame[
+            "batch_position"
+        ].tolist()
+        ==
+        list(
+            range(
+                len(
+                    frame
+                )
+            )
+        ),
+        "Validation batch_position ordering drift.",
+    )
+
+    return frame
 
 
 def full_t57_validation(
