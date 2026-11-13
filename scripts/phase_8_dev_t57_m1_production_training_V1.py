@@ -1982,6 +1982,14 @@ PHASE8_ROOT = Path(
     "data/experimental/phase_8"
 )
 
+
+# Constants defined inside the authoritative 8.2.7 runtime namespace.
+# Rebind only the path needed by the production controller.
+GRAPH_DIR = runtime[
+    "GRAPH_DIR"
+]
+
+
 FRAMEWORK_ROOT = (
     PHASE8_ROOT
     / "phase_8_2_framework_development"
