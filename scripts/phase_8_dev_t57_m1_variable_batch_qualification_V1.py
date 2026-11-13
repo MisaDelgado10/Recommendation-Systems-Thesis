@@ -1211,9 +1211,9 @@ compute_body = (
 
 # Generalize ONLY the three semantic batch-length dependencies inherited
 # from the frozen 512-row preflight. Use an AST transformation so formatting
-# cannot affect the qualification. Every actual Name("BATCH_SIZE") occurrence
-# in the selected forward/BCE body must be one of the three known semantics:
-# trend batch assembly, pair-shape audit, and logit-shape audit.
+# cannot affect the qualification. The persistent step intentionally excludes
+# audit-only pair/logit shape assertions, leaving one executable BATCH_SIZE
+# occurrence in the trend batch assembly loop.
 
 class _VariableBatchTransformer(ast.NodeTransformer):
 
@@ -1271,9 +1271,9 @@ ast.fix_missing_locations(
 )
 
 require(
-    _variable_batch_transformer.replacements == 3,
+    _variable_batch_transformer.replacements == 1,
     (
-        "Unexpected AST BATCH_SIZE inventory in forward/BCE body: "
+        "Unexpected AST BATCH_SIZE inventory in persistent forward/BCE body: "
         f"{_variable_batch_transformer.replacements}"
     ),
 )
@@ -1298,7 +1298,7 @@ require(
 )
 
 print(
-    "  Variable-batch AST replacements: 3 PASS"
+    "  Variable-batch AST replacements: 1 PASS"
 )
 
 
