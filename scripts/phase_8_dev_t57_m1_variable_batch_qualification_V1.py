@@ -1210,80 +1210,96 @@ compute_body = (
 
 
 # Generalize ONLY the three semantic batch-length dependencies inherited
-# from the frozen 512-row preflight. Do not replace arbitrary BATCH_SIZE text:
-# every mathematical substitution below must match exactly once.
-_variable_batch_replacements = [
-    (
-        """for i
-                in range(
-                    BATCH_SIZE
-                )""",
-        """for i
-                in range(
-                    len(batch)
-                )""",
-        "trend batch assembly loop",
-    ),
-    (
-        """pair.shape
-        == (
-            BATCH_SIZE,
-            280,
-        )""",
-        """pair.shape
-        == (
-            len(batch),
-            280,
-        )""",
-        "pair shape audit",
-    ),
-    (
-        """logits.shape
-        == (
-            BATCH_SIZE,
-            1,
-        )""",
-        """logits.shape
-        == (
-            len(batch),
-            1,
-        )""",
-        "logit shape audit",
-    ),
-]
+# from the frozen 512-row preflight. Use an AST transformation so formatting
+# cannot affect the qualification. Every actual Name("BATCH_SIZE") occurrence
+# in the selected forward/BCE body must be one of the three known semantics:
+# trend batch assembly, pair-shape audit, and logit-shape audit.
 
-for old_text, new_text, label in _variable_batch_replacements:
+class _VariableBatchTransformer(ast.NodeTransformer):
 
-    require(
-        compute_body.count(old_text) == 1,
-        (
-            "Variable-batch semantic pattern inventory changed: "
-            f"{label}; matches={compute_body.count(old_text)}"
-        ),
-    )
+    def __init__(self):
+        super().__init__()
+        self.replacements = 0
 
-    compute_body = compute_body.replace(
-        old_text,
-        new_text,
-    )
+    def visit_Name(self, node):
 
-# Any remaining occurrence is permitted only if it is not one of the three
-# batch-length semantics above. Record it for audit instead of rewriting it.
-remaining_batch_size_mentions = [
-    line.strip()
-    for line in compute_body.splitlines()
-    if "BATCH_SIZE" in line
-]
+        if (
+            isinstance(node.ctx, ast.Load)
+            and node.id == "BATCH_SIZE"
+        ):
+            self.replacements += 1
 
-print(
-    "  Residual BATCH_SIZE mentions after semantic patch: "
-    f"{len(remaining_batch_size_mentions)}"
+            return ast.copy_location(
+                ast.Call(
+                    func=ast.Name(
+                        id="len",
+                        ctx=ast.Load(),
+                    ),
+                    args=[
+                        ast.Name(
+                            id="batch",
+                            ctx=ast.Load(),
+                        )
+                    ],
+                    keywords=[],
+                ),
+                node,
+            )
+
+        return node
+
+
+_compute_tree = ast.parse(
+    compute_body,
+    filename="<phase8_variable_batch_compute_body>",
+    mode="exec",
 )
 
-for line in remaining_batch_size_mentions:
-    print(
-        f"    residual: {line}"
+_variable_batch_transformer = (
+    _VariableBatchTransformer()
+)
+
+_compute_tree = (
+    _variable_batch_transformer
+    .visit(
+        _compute_tree
     )
+)
+
+ast.fix_missing_locations(
+    _compute_tree
+)
+
+require(
+    _variable_batch_transformer.replacements == 3,
+    (
+        "Unexpected AST BATCH_SIZE inventory in forward/BCE body: "
+        f"{_variable_batch_transformer.replacements}"
+    ),
+)
+
+compute_body = ast.unparse(
+    _compute_tree
+)
+
+require(
+    not any(
+        isinstance(node, ast.Name)
+        and node.id == "BATCH_SIZE"
+        for node in ast.walk(
+            ast.parse(
+                compute_body,
+                filename="<phase8_variable_batch_compute_body_post>",
+                mode="exec",
+            )
+        )
+    ),
+    "Variable-batch forward still contains executable BATCH_SIZE names.",
+)
+
+print(
+    "  Variable-batch AST replacements: 3 PASS"
+)
 
 
 print(
