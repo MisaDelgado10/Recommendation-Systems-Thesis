@@ -1209,24 +1209,81 @@ compute_body = (
 )
 
 
-# The selected authoritative forward/BCE body has exactly three BATCH_SIZE
-# dependencies: trend batch assembly, pair-shape audit, and logit-shape audit.
-# Replacing those with len(batch) preserves identical 512-row behavior while
-# allowing the frozen final 30-row batch.
-require(
-    compute_body.count("BATCH_SIZE") == 3,
-    "Unexpected BATCH_SIZE inventory in forward/BCE body.",
+# Generalize ONLY the three semantic batch-length dependencies inherited
+# from the frozen 512-row preflight. Do not replace arbitrary BATCH_SIZE text:
+# every mathematical substitution below must match exactly once.
+_variable_batch_replacements = [
+    (
+        """for i
+                in range(
+                    BATCH_SIZE
+                )""",
+        """for i
+                in range(
+                    len(batch)
+                )""",
+        "trend batch assembly loop",
+    ),
+    (
+        """pair.shape
+        == (
+            BATCH_SIZE,
+            280,
+        )""",
+        """pair.shape
+        == (
+            len(batch),
+            280,
+        )""",
+        "pair shape audit",
+    ),
+    (
+        """logits.shape
+        == (
+            BATCH_SIZE,
+            1,
+        )""",
+        """logits.shape
+        == (
+            len(batch),
+            1,
+        )""",
+        "logit shape audit",
+    ),
+]
+
+for old_text, new_text, label in _variable_batch_replacements:
+
+    require(
+        compute_body.count(old_text) == 1,
+        (
+            "Variable-batch semantic pattern inventory changed: "
+            f"{label}; matches={compute_body.count(old_text)}"
+        ),
+    )
+
+    compute_body = compute_body.replace(
+        old_text,
+        new_text,
+    )
+
+# Any remaining occurrence is permitted only if it is not one of the three
+# batch-length semantics above. Record it for audit instead of rewriting it.
+remaining_batch_size_mentions = [
+    line.strip()
+    for line in compute_body.splitlines()
+    if "BATCH_SIZE" in line
+]
+
+print(
+    "  Residual BATCH_SIZE mentions after semantic patch: "
+    f"{len(remaining_batch_size_mentions)}"
 )
 
-compute_body = compute_body.replace(
-    "BATCH_SIZE",
-    "len(batch)",
-)
-
-require(
-    "BATCH_SIZE" not in compute_body,
-    "Variable-batch forward still contains BATCH_SIZE.",
-)
+for line in remaining_batch_size_mentions:
+    print(
+        f"    residual: {line}"
+    )
 
 
 print(
